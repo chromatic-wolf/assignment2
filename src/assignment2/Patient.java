@@ -4,77 +4,121 @@
  */
 package assignment2;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 /**
  *
  * @author caleb
  */
 public class Patient {
-    private String FirstName;
-    private String MiddleName;
-    private String LastName;
-    private int DOB;
-    private String Gender;
+
+    private SimpleIntegerProperty patientID;
+    private SimpleStringProperty FirstName;
+    private SimpleStringProperty MiddleName;
+    private SimpleStringProperty LastName;
+    private SimpleStringProperty DOB;
+    private SimpleStringProperty phoneNum;
+    private SimpleStringProperty Gender;
+
+    boolean deletePatient(DataBaseConnector dbConnection) {
+        try {
+            String sql = " DELETE FROM covidtestdb.patient WHERE PatientID=?; ";
+
+            PreparedStatement queryInsertPatient = dbConnection.getConnectionObj().prepareStatement(sql);
+            queryInsertPatient.setInt(1, Integer.valueOf(this.patientID.get()));
+            queryInsertPatient.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            System.out.println("Error cannot delete");
+            Logger.getLogger(Patient.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+
+    }
     
     
-    
-    Patient(String FirstName, String MiddleName, String LastName, int DOB, String phoneNum, String Gender)
-    {
+
+    public Patient(Integer id, String FirstName, String MiddleName, String LastName, String DOB, String phoneNum, String Gender) {
+        this.patientID = new SimpleIntegerProperty(id);
+        this.FirstName = new SimpleStringProperty(FirstName);
+        this.MiddleName = new SimpleStringProperty(MiddleName);
+        this.LastName = new SimpleStringProperty(LastName);
+        this.DOB = new SimpleStringProperty(DOB);
+        this.phoneNum = new SimpleStringProperty(phoneNum);
+        this.Gender = new SimpleStringProperty(Gender);
+    }
+
+    public Integer getPatientID() {
+        return Integer.valueOf(this.patientID.get());
+    }
+
+    public String getFirstName() {
+        return this.FirstName.get();
+    }
+
+    public String getMiddleName() {
+        return this.MiddleName.get();
+    }
+
+    public String getLastName() {
+        return this.LastName.get();
+    }
+
+    public String getDOB() {
+        return this.DOB.get();
+    }
+
+    public String getPhoneNum() {
+        return this.phoneNum.get();
+    }
+
+    public String getGender() {
+        return this.Gender.get();
+    }
+
+    public void setID(SimpleIntegerProperty id) {
+        this.patientID = id;
+    }
+
+    public void setFirstName(SimpleStringProperty FirstName) {
         this.FirstName = FirstName;
+    }
+
+    public void setMiddleName(SimpleStringProperty MiddleName) {
         this.MiddleName = MiddleName;
+    }
+
+    public void setLastName(SimpleStringProperty LastName) {
         this.LastName = LastName;
+    }
+
+    public void setDOB(SimpleStringProperty DOB) {
         this.DOB = DOB;
+    }
+
+    public void setPhoneNum(SimpleStringProperty phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
+    public void setGender(SimpleStringProperty Gender) {
         this.Gender = Gender;
     }
-    
-    String getFirstName()
-    {
-        return this.FirstName;
+
+    public void printAll() {
+        System.out.println("ID:" + this.patientID);
+
+        System.out.println("First:" + this.FirstName);
+        System.out.println("Middle:" + this.MiddleName);
+        System.out.println("Last:" + this.LastName);
+        System.out.println("DOB:" + this.DOB);
+        System.out.println("Phone:" + this.phoneNum);
+        System.out.println("Gender:" + this.Gender);
+
     }
-    
-    String getMiddleName()
-    {
-        return this.MiddleName;
-    }
-    
-    String getLastName()
-    {
-        return this.LastName;
-    }
-    
-    int getDOB()
-    {
-        return this.DOB;
-    }
-    
-    String getGender()
-    {
-        return this.Gender;
-    }
-    
-    void setFirstName(String FirstName)
-    {
-        this.FirstName = FirstName;
-    }
-    
-    void setMiddleName(String MiddleName)
-    {
-        this.MiddleName = MiddleName;
-    }
-    
-    void setLastName(String LastName)
-    {
-        this.LastName = LastName;
-    }
-    
-    void setDOB(int DOB)
-    {
-        this.DOB = DOB;
-    }
-    
-    void setGender(String Gender)
-    {
-        this.Gender = Gender;
-    }
-     
-    
+
 }

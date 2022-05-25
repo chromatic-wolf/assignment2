@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="634.0" prefWidth="853.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="assignment2.PatientViewController">
+   <children>
+      <TextField fx:id="ui_first_name" layoutX="151.0" layoutY="14.0" />
+      <TextField fx:id="ui_middle_name" layoutX="151.0" layoutY="73.0" />
+      <TextField fx:id="ui_last_name" layoutX="151.0" layoutY="129.0" />
+      <TextField fx:id="ui_phone_number" layoutX="151.0" layoutY="187.0" />
+      <TextField fx:id="ui_gender" layoutX="151.0" layoutY="288.0" />
+      <TableView fx:id="ui_table" layoutX="25.0" layoutY="338.0" prefHeight="280.0" prefWidth="819.0">
+        <columns>
+            <TableColumn fx:id="ui_table_id" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="ui_table_first_name" prefWidth="101.0" text="First Name" />
+          <TableColumn fx:id="ui_table_middle_name" prefWidth="130.0" text="Middle Name" />
+            <TableColumn fx:id="ui_table_last_name" minWidth="6.0" prefWidth="105.0" text="Last Name" />
+            <TableColumn fx:id="ui_table_phone_number" prefWidth="143.0" text="Phone Number" />
+            <TableColumn fx:id="ui_table_dob" prefWidth="91.0" text="DOB" />
+            <TableColumn fx:id="ui_table_gender" prefWidth="104.0" text="Gender" />
+        </columns>
+      </TableView>
+      <Label layoutX="31.0" layoutY="20.0" text="First Name" />
+      <Label layoutX="20.0" layoutY="79.0" text="Middle Name" />
+      <Label layoutX="32.0" layoutY="135.0" text="Last Name" />
+      <Label layoutX="14.0" layoutY="193.0" text="Phone Number" />
+      <Label layoutX="45.0" layoutY="294.0" text="Gender" />
+      <Label layoutX="435.0" layoutY="138.0" text="ID" />
+      <TextField fx:id="ui_id_field" layoutX="467.0" layoutY="132.0" />
+      <Button fx:id="ui_search_id" layoutX="517.0" layoutY="188.0" mnemonicParsing="false" text="Search By ID" />
+      <Label layoutX="53.0" layoutY="241.0" text="DOB" />
+      <TextField fx:id="ui_dob" layoutX="151.0" layoutY="235.0" />
+      <Button fx:id="ui_add_patient" layoutX="428.0" layoutY="275.0" mnemonicParsing="false" text="Add Patient" />
+      <Button fx:id="ui_delete_btn" layoutX="579.0" layoutY="275.0" mnemonicParsing="false" text="Delete Selected Patient" />
+      <Button fx:id="ui_view_patient_test_btn" layoutX="667.0" layoutY="194.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="142.0" text="View Selected patient test" wrapText="true" />
+   </children>
+</AnchorPane>

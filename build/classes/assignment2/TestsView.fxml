@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="513.0" prefWidth="731.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="assignment2.TestsViewController">
+   <children>
+      <TableView fx:id="ui_test_table" layoutX="100.0" layoutY="180.0" prefHeight="302.0" prefWidth="532.0">
+        <columns>
+          <TableColumn fx:id="ui_test_table_id" prefWidth="131.0" text="TestID" />
+          <TableColumn fx:id="ui_test_table_method" prefWidth="77.0" text="Method" />
+            <TableColumn fx:id="ui_test_table_date" prefWidth="99.0" text="TestDate" />
+            <TableColumn fx:id="ui_test_table_result" prefWidth="88.0" text="Result" />
+        </columns>
+      </TableView>
+      <TextField fx:id="ui_method_field" layoutX="212.0" layoutY="76.0" prefHeight="39.0" prefWidth="132.0" />
+      <DatePicker fx:id="ui_date_field" layoutX="353.0" layoutY="76.0" prefHeight="39.0" prefWidth="170.0" />
+      <ChoiceBox fx:id="ui_result_field" layoutX="543.0" layoutY="76.0" prefWidth="150.0" />
+      <Button fx:id="ui_add_btn" layoutX="297.0" layoutY="130.0" mnemonicParsing="false" text="Add Test" />
+      <Label layoutX="257.0" layoutY="49.0" text="Method" />
+      <Label layoutX="392.0" layoutY="49.0" text="Date" />
+      <Label layoutX="597.0" layoutY="36.0" text="Result" />
+   </children>
+</AnchorPane>
